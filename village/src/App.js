@@ -26,6 +26,33 @@ class App extends Component {
 
   }
 
+  addSmurf = smurf => {
+
+    let url = "http://localhost:3333/smurfs";
+    axios
+      .post(url, smurf)
+      .then(
+        response => this.setState({
+        smurfs: response.data
+
+      })
+      )
+      .catch(err => console.log(err))
+  }
+
+  deleteSmurf = (e, id) => {
+    e.preventDefault();
+
+    let url = `http://localhost:5000/friends/${id}`
+
+    axios.delete(url)
+    .then(response => this.setState({
+        friends: response.data
+
+    }))
+    
+}    
+
 
   // Notice what your map function is looping over and returning inside of Smurfs.
 
@@ -42,16 +69,17 @@ class App extends Component {
         </nav>
 
         <Route path = "/smurf-form"
-          render = {props => <SmurfForm smurfs={this.state.smurfs}
+          render = {props => <SmurfForm addSmurf={this.addSmurf}
           {...props}/>
         }/>
         <Route exact path = "/"
           render = {props => <Smurfs smurfs={this.state.smurfs}
+          deleteSmurf={this.deleteSmurf}
           {...props}/>
         }/>
       </div>
     );
-  }
+  };
 }
 
 export default App;
