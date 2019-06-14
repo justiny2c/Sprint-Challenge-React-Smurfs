@@ -43,11 +43,11 @@ class App extends Component {
   deleteSmurf = (e, id) => {
     e.preventDefault();
 
-    let url = `http://localhost:5000/friends/${id}`
+    let url = `http://localhost:3333/smurfs/${id}`
 
     axios.delete(url)
     .then(response => this.setState({
-        friends: response.data
+        smurfs: response.data
 
     }))
     

@@ -1,3 +1,23 @@
 .App {
   text-align: center;
 }
+
+/* .active {
+  text-decoration: none;
+  padding: 10px;
+  color: black;
+  font-weight: bold;
+  font-size: 1.2rem;
+} 
+
+.false {
+  text-decoration: none;
+  padding: 10px;
+  color: black;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.active:hover {
+  color: rgb(0, 48, 152);
+} */
