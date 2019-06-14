@@ -19,13 +19,12 @@ class SmurfForm extends Component {
     let data = {
       name: this.state.name,
       age: this.state.age,
-      height: this.state.height,
-    
+      height: this.state.height,    
     }
 
     let url = "http://localhost:3333/smurfs";
     axios
-      .put(url, data)
+      .post(url, data)
       .then(
         response => this.setState({
         smurfs: response.data
